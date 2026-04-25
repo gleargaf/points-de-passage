@@ -1,0 +1,54 @@
+directives:
+- add_model:
+    name: so101
+    file: package://so101_scene/so101_drake.xml
+
+- add_model:
+    name: red_block
+    file: package://so101_scene/lego_block.xml
+- add_frame:
+    name: red_block_home
+    X_PF:
+      base_frame: world
+      translation: [0.15, -0.12, 0.0095]
+- add_weld:
+    parent: red_block_home
+    child: red_block::block
+    X_PC:
+      translation: [0.0, 0.0, 0.0]
+
+- add_model:
+    name: green_block
+    file: package://so101_scene/lego_block.xml
+- add_frame:
+    name: green_block_home
+    X_PF:
+      base_frame: world
+      translation: [0.25, 0.05, 0.0095]
+- add_weld:
+    parent: green_block_home
+    child: green_block::block
+    X_PC:
+      translation: [0.0, 0.0, 0.0]
+
+- add_model:
+    name: blue_block
+    file: package://so101_scene/lego_block.xml
+- add_frame:
+    name: blue_block_home
+    X_PF:
+      base_frame: world
+      translation: [0.22, -0.18, 0.0095]
+- add_weld:
+    parent: blue_block_home
+    child: blue_block::block
+    X_PC:
+      translation: [0.0, 0.0, 0.0]
+
+- add_collision_filter_group:
+    name: group_mj1cb1
+    members:
+    - so101::moving_jaw_so101_v1
+    - so101::camera_mount
+    ignored_collision_filter_groups:
+    - group_mj1cb1
